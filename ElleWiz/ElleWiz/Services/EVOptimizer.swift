@@ -1,64 +1,62 @@
 import MapKit
 
-/// Estimates energy consumption for a route and scores it for EV efficiency.
+/// Estimates energy consumption for display and range checks.
+/// When a HERE API key is set, HERE's own EV engine provides the primary consumption figure;
+/// this struct is then used only for the fallback (MapKit routes) and UI display.
 struct EVOptimizer {
 
-    // Approximate kWh/mile at different speed bands (highway, suburban, urban)
-    private static let highwayConsumption = 0.30   // kWh/mile >55 mph
-    private static let suburbanConsumption = 0.25  // kWh/mile 30-55 mph
-    private static let urbanConsumption = 0.20     // kWh/mile <30 mph (more regen)
+    // MARK: - 2023 Bolt EUV consumption model
 
-    /// Returns estimated kWh needed to complete the route.
-    static func estimatedEnergyKWh(for route: MKRoute) -> Double {
-        let distanceMiles = route.distance / 1609.34
-        let avgSpeedMPS = route.distance / max(route.expectedTravelTime, 1)
-        let avgSpeedMPH = avgSpeedMPS * 2.23694
+    // kWh/mile at different average speed bands (from EPA and real-world Bolt EUV data).
+    private static let urbanKWhPerMile    = 0.248  // <30 mph — regen helps in city
+    private static let suburbanKWhPerMile = 0.222  // 30–55 mph — sweet spot
+    private static let highwayKWhPerMile  = 0.286  // >55 mph — aero drag dominates
+
+    /// Idle penalty per unprotected left turn: ~45 s at ~0.5 kW draw (HVAC + electronics).
+    static let idlePenaltyKWhPerUnprotectedLeft: Double = 0.5 * (45.0 / 3600.0)  // ≈0.00625 kWh
+
+    // MARK: - Public API
+
+    /// Estimates total energy in kWh for a route defined by distance and duration.
+    static func totalEnergyKWh(
+        distanceMeters: Double,
+        durationSeconds: Double,
+        unprotectedLeftTurns: Int
+    ) -> Double {
+        let distanceMiles = distanceMeters / 1609.34
+        let avgSpeedMPS   = distanceMeters / max(durationSeconds, 1)
+        let avgSpeedMPH   = avgSpeedMPS * 2.23694
 
         let kwhPerMile: Double
         switch avgSpeedMPH {
-        case ..<30:
-            kwhPerMile = urbanConsumption
-        case 30..<55:
-            kwhPerMile = suburbanConsumption
-        default:
-            kwhPerMile = highwayConsumption
+        case ..<30:  kwhPerMile = urbanKWhPerMile
+        case 30..<55: kwhPerMile = suburbanKWhPerMile
+        default:     kwhPerMile = highwayKWhPerMile
         }
 
-        // Stop-and-go penalty: each left turn that isn't protected costs extra idle time
-        // (this is refined by the turn count supplied externally)
-        return distanceMiles * kwhPerMile
-    }
-
-    /// Applies a penalty (in kWh) per unprotected left turn due to idling.
-    /// Average idle at a light ~45 seconds; EV draws ~0.5 kW while stopped (HVAC, electronics).
-    static let idlePenaltyPerUnprotectedLeftKWh: Double = 0.5 * (45.0 / 3600.0)
-
-    /// Computes total estimated energy including turn penalties.
-    static func totalEnergyKWh(for route: MKRoute, unprotectedLeftTurns: Int) -> Double {
-        let base = estimatedEnergyKWh(for: route)
-        let penalty = Double(unprotectedLeftTurns) * idlePenaltyPerUnprotectedLeftKWh
+        let base    = distanceMiles * kwhPerMile
+        let penalty = Double(unprotectedLeftTurns) * idlePenaltyKWhPerUnprotectedLeft
         return base + penalty
     }
 
-    /// Returns remaining range in miles after completing the route.
+    /// Remaining range in miles after completing a route, given current battery state.
     static func remainingRangeMiles(
-        batteryCapacityKWh: Double,
         currentChargePercent: Double,
-        efficiencyMilesPerKWh: Double,
         routeEnergyKWh: Double
     ) -> Double {
-        let availableKWh = batteryCapacityKWh * (currentChargePercent / 100.0)
-        let remainingKWh = availableKWh - routeEnergyKWh
-        return max(0, remainingKWh * efficiencyMilesPerKWh)
+        let availableKWh  = BoltEUVProfile.usableCapacityWh / 1000.0 * (currentChargePercent / 100.0)
+        let remainingKWh  = availableKWh - routeEnergyKWh
+        return max(0, remainingKWh * BoltEUVProfile.epaEfficiencyMilesPerKWh)
     }
 
-    /// True if battery charge is sufficient to complete the route with a 10% buffer.
+    /// Returns true if the battery has enough charge to complete the route with a 10% buffer.
     static func isSufficientCharge(
-        batteryCapacityKWh: Double,
         currentChargePercent: Double,
         routeEnergyKWh: Double
     ) -> Bool {
-        let availableKWh = batteryCapacityKWh * ((currentChargePercent - 10.0) / 100.0)
+        let reservePercent = 10.0
+        let availableKWh   = BoltEUVProfile.usableCapacityWh / 1000.0
+                           * ((currentChargePercent - reservePercent) / 100.0)
         return availableKWh >= routeEnergyKWh
     }
 }

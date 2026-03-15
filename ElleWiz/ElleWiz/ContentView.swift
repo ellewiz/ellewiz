@@ -116,9 +116,7 @@ struct ContentView: View {
                                 RouteCardView(
                                     route: route,
                                     isSelected: route.id == routingService.selectedRoute?.id,
-                                    batteryCapacityKWh: settings.evBatteryCapacityKWh,
                                     currentChargePercent: settings.evCurrentChargePercent,
-                                    efficiencyMilesPerKWh: settings.evEfficiencyMilesPerKWh,
                                     onSelect: { routingService.selectedRoute = route }
                                 )
                             }

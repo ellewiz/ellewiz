@@ -3,23 +3,18 @@ import SwiftUI
 struct RouteCardView: View {
     let route: ScoredRoute
     let isSelected: Bool
-    let batteryCapacityKWh: Double
     let currentChargePercent: Double
-    let efficiencyMilesPerKWh: Double
     let onSelect: () -> Void
 
     private var remainingRange: Double {
         EVOptimizer.remainingRangeMiles(
-            batteryCapacityKWh: batteryCapacityKWh,
             currentChargePercent: currentChargePercent,
-            efficiencyMilesPerKWh: efficiencyMilesPerKWh,
             routeEnergyKWh: route.estimatedEnergyKWh
         )
     }
 
     private var hasSufficientCharge: Bool {
         EVOptimizer.isSufficientCharge(
-            batteryCapacityKWh: batteryCapacityKWh,
             currentChargePercent: currentChargePercent,
             routeEnergyKWh: route.estimatedEnergyKWh
         )
@@ -49,21 +44,13 @@ struct RouteCardView: View {
                     Label(String(format: "%.2f kWh", route.estimatedEnergyKWh), systemImage: "bolt.fill")
                         .foregroundStyle(hasSufficientCharge ? .green : .red)
                     Label(String(format: "%.0f mi left", remainingRange), systemImage: "battery.75")
-                        .foregroundStyle(remainingRange > 20 ? .primary : .red)
+                        .foregroundStyle(remainingRange > 20 ? .primary : .orange)
                 }
                 .font(.subheadline)
 
                 HStack(spacing: 8) {
-                    turnBadge(
-                        count: route.leftTurnCount - route.protectedLeftCount,
-                        label: "unprotected ←",
-                        color: .orange
-                    )
-                    turnBadge(
-                        count: route.protectedLeftCount,
-                        label: "protected ←",
-                        color: .green
-                    )
+                    turnBadge(count: route.unprotectedLeftCount, label: "unprotected ←", color: .orange)
+                    turnBadge(count: route.protectedLeftCount,   label: "protected ←",   color: .green)
                 }
             }
             .padding()

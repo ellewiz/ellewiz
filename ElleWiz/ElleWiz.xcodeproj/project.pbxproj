@@ -18,6 +18,9 @@
 		A009 /* RouteChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009 /* RouteChangeAlertView.swift */; };
 		A010 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010 /* SettingsView.swift */; };
 		A011 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F011 /* Info.plist */; };
+		A012 /* HEREModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F012 /* HEREModels.swift */; };
+		A013 /* FlexiblePolylineDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013 /* FlexiblePolylineDecoder.swift */; };
+		A014 /* HERERoutingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014 /* HERERoutingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		F009 /* RouteChangeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteChangeAlertView.swift; sourceTree = "<group>"; };
 		F010 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F012 /* HEREModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEREModels.swift; sourceTree = "<group>"; };
+		F013 /* FlexiblePolylineDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiblePolylineDecoder.swift; sourceTree = "<group>"; };
+		F014 /* HERERoutingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HERERoutingService.swift; sourceTree = "<group>"; };
 		FAPP /* ElleWiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElleWiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				F003 /* RouteModels.swift */,
+				F012 /* HEREModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -80,6 +87,8 @@
 				F004 /* LocationService.swift */,
 				F005 /* EVOptimizer.swift */,
 				F006 /* RoutingService.swift */,
+				F013 /* FlexiblePolylineDecoder.swift */,
+				F014 /* HERERoutingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -181,6 +190,9 @@
 				A008 /* RouteCardView.swift in Sources */,
 				A009 /* RouteChangeAlertView.swift in Sources */,
 				A010 /* SettingsView.swift in Sources */,
+				A012 /* HEREModels.swift in Sources */,
+				A013 /* FlexiblePolylineDecoder.swift in Sources */,
+				A014 /* HERERoutingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
