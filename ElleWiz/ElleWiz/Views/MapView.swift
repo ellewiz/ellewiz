@@ -25,12 +25,12 @@ struct MapView: UIViewRepresentable {
 
         // Draw non-selected routes dimmed, selected route highlighted
         for route in routes where route.id != selectedRoute?.id {
-            let overlay = route.mkRoute.polyline
+            let overlay = route.polyline
             overlay.title = "dimmed"
             mapView.addOverlay(overlay, level: .aboveRoads)
         }
         if let selected = selectedRoute {
-            let overlay = selected.mkRoute.polyline
+            let overlay = selected.polyline
             overlay.title = "selected"
             mapView.addOverlay(overlay, level: .aboveRoads)
         }
