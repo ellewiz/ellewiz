@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A001 /* ElleWizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001 /* ElleWizApp.swift */; };
+		A002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002 /* ContentView.swift */; };
+		A003 /* RouteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003 /* RouteModels.swift */; };
+		A004 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004 /* LocationService.swift */; };
+		A005 /* EVOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005 /* EVOptimizer.swift */; };
+		A006 /* RoutingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006 /* RoutingService.swift */; };
+		A007 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007 /* MapView.swift */; };
+		A008 /* RouteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008 /* RouteCardView.swift */; };
+		A009 /* RouteChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009 /* RouteChangeAlertView.swift */; };
+		A010 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010 /* SettingsView.swift */; };
+		A011 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F011 /* Info.plist */; };
+		A012 /* HEREModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F012 /* HEREModels.swift */; };
+		A013 /* FlexiblePolylineDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013 /* FlexiblePolylineDecoder.swift */; };
+		A014 /* HERERoutingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014 /* HERERoutingService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F001 /* ElleWizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElleWizApp.swift; sourceTree = "<group>"; };
+		F002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F003 /* RouteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModels.swift; sourceTree = "<group>"; };
+		F004 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		F005 /* EVOptimizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVOptimizer.swift; sourceTree = "<group>"; };
+		F006 /* RoutingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingService.swift; sourceTree = "<group>"; };
+		F007 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F008 /* RouteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCardView.swift; sourceTree = "<group>"; };
+		F009 /* RouteChangeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteChangeAlertView.swift; sourceTree = "<group>"; };
+		F010 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F012 /* HEREModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEREModels.swift; sourceTree = "<group>"; };
+		F013 /* FlexiblePolylineDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiblePolylineDecoder.swift; sourceTree = "<group>"; };
+		F014 /* HERERoutingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HERERoutingService.swift; sourceTree = "<group>"; };
+		FAPP /* ElleWiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElleWiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		GR00 /* root */ = {
+			isa = PBXGroup;
+			children = (
+				GR01 /* ElleWiz */,
+				GR0P /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		GR01 /* ElleWiz */ = {
+			isa = PBXGroup;
+			children = (
+				F001 /* ElleWizApp.swift */,
+				F002 /* ContentView.swift */,
+				GR02 /* Models */,
+				GR03 /* Services */,
+				GR04 /* Views */,
+				GR05 /* Resources */,
+			);
+			path = ElleWiz;
+			sourceTree = "<group>";
+		};
+		GR02 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F003 /* RouteModels.swift */,
+				F012 /* HEREModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		GR03 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F004 /* LocationService.swift */,
+				F005 /* EVOptimizer.swift */,
+				F006 /* RoutingService.swift */,
+				F013 /* FlexiblePolylineDecoder.swift */,
+				F014 /* HERERoutingService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		GR04 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F007 /* MapView.swift */,
+				F008 /* RouteCardView.swift */,
+				F009 /* RouteChangeAlertView.swift */,
+				F010 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		GR05 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F011 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		GR0P /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAPP /* ElleWiz.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		TGT1 /* ElleWiz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCL1 /* Build configuration list for PBXNativeTarget "ElleWiz" */;
+			buildPhases = (
+				BP01 /* Sources */,
+				BF01 /* Frameworks */,
+				BR01 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = ElleWiz;
+			productName = ElleWiz;
+			productReference = FAPP /* ElleWiz.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		PROJ /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					TGT1 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = BCL0 /* Build configuration list for PBXProject "ElleWiz" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = GR00;
+			productRefGroup = GR0P /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (TGT1 /* ElleWiz */);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BR01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (A011 /* Info.plist in Resources */);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BP01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A001 /* ElleWizApp.swift in Sources */,
+				A002 /* ContentView.swift in Sources */,
+				A003 /* RouteModels.swift in Sources */,
+				A004 /* LocationService.swift in Sources */,
+				A005 /* EVOptimizer.swift in Sources */,
+				A006 /* RoutingService.swift in Sources */,
+				A007 /* MapView.swift in Sources */,
+				A008 /* RouteCardView.swift in Sources */,
+				A009 /* RouteChangeAlertView.swift in Sources */,
+				A010 /* SettingsView.swift in Sources */,
+				A012 /* HEREModels.swift in Sources */,
+				A013 /* FlexiblePolylineDecoder.swift in Sources */,
+				A014 /* HERERoutingService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BC00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BC01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ElleWiz/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ellewiz.ev-router";
+				PRODUCT_NAME = ElleWiz;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BC11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ElleWiz/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ellewiz.ev-router";
+				PRODUCT_NAME = ElleWiz;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCL0 /* Build configuration list for PBXProject "ElleWiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (BC00 /* Debug */, BC01 /* Release */);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCL1 /* Build configuration list for PBXNativeTarget "ElleWiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (BC10 /* Debug */, BC11 /* Release */);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = PROJ /* Project object */;
+}
