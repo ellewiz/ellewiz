@@ -44,7 +44,7 @@ struct RouteCardView: View {
                     Label(String(format: "%.2f kWh", route.estimatedEnergyKWh), systemImage: "bolt.fill")
                         .foregroundStyle(hasSufficientCharge ? .green : .red)
                     Label(String(format: "%.0f mi left", remainingRange), systemImage: "battery.75")
-                        .foregroundStyle(remainingRange > 20 ? .primary : .orange)
+                        .foregroundStyle(remainingRange > 20 ? Color.primary : Color.orange)
                 }
                 .font(.subheadline)
 
