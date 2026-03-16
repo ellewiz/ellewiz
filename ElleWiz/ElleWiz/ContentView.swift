@@ -222,7 +222,7 @@ struct NavigationButton: View {
     var body: some View {
         Button {
             // Deep-link into Apple Maps with the polyline's endpoint
-            let coordinate = route.mkRoute.polyline.points()[route.mkRoute.polyline.pointCount - 1].coordinate
+            let coordinate = route.polyline.points()[route.polyline.pointCount - 1].coordinate
             let destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
             destination.name = route.label
             destination.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
